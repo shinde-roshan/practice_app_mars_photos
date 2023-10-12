@@ -19,7 +19,7 @@ class OverviewViewModel : ViewModel() {
         try {
             viewModelScope.launch {
                 val response = MarsApi.retrofitService.getPhotos()
-                _status.value = response
+                _status.value = "Success: ${response.size} mars photos received."
             }
         } catch (e: Exception) {
             _status.value = e.message
