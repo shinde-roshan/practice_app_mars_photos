@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.marsphotos.databinding.FragmentOverviewBinding
+import com.example.marsphotos.databinding.GridViewItemBinding
 
 
 class OverviewFragment : Fragment() {
@@ -17,7 +18,8 @@ class OverviewFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentOverviewBinding.inflate(layoutInflater)
+//        val binding = FragmentOverviewBinding.inflate(layoutInflater)
+        val binding = GridViewItemBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         return binding.root

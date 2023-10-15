@@ -9,6 +9,9 @@ import coil.load
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     imgUrl?.let {
         imgUrl.toUri().buildUpon().scheme("https").build()
-        imgView.load(imgUrl)
+        imgView.load(imgUrl) {
+            placeholder(R.drawable.loading_animation)
+            error(R.drawable.ic_broken_image)
+        }
     }
 }
