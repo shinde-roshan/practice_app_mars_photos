@@ -4,8 +4,8 @@
     
     <data>
         <variable
-            name="viewModel"
-            type="com.example.marsphotos.overview.OverviewViewModel" />
+            name="photo"
+            type="com.example.marsphotos.network.MarsPhoto" />
     </data>
     
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:imgUrl="@{viewModel.photos.imgSrcUrl}" />
+            app:imgUrl="@{photo.imgSrcUrl}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     

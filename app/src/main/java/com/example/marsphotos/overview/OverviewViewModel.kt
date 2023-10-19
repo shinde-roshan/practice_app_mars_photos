@@ -10,9 +10,9 @@ import kotlinx.coroutines.launch
 
 class OverviewViewModel : ViewModel() {
     private val _status = MutableLiveData<String>()
-    private var _photos = MutableLiveData<MarsPhoto>()
+    private var _photos = MutableLiveData<List<MarsPhoto>>()
     val status: LiveData<String> = _status
-    val photos: LiveData<MarsPhoto> = _photos
+    val photos: LiveData<List<MarsPhoto>> = _photos
 
     init {
         getMarsPhotos()
@@ -21,9 +21,8 @@ class OverviewViewModel : ViewModel() {
     private fun getMarsPhotos() {
         try {
             viewModelScope.launch {
-                val response = MarsApi.retrofitService.getPhotos()
-                _photos.value = response[0]
-                _status.value = "Success: ${response.size} mars photos received."
+                _photos.value = MarsApi.retrofitService.getPhotos()
+                _status.value = "Success: ${_photos.value!!.size} mars photos received."
             }
         } catch (e: Exception) {
             _status.value = e.message
